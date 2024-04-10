@@ -4,6 +4,7 @@
 <head>
     <title>LA TV Shows | Home</title>
     <meta name="description" content="A Catalog of Shows Set in Los Angeles">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="scripts.js"></script>
 </head>
@@ -12,9 +13,18 @@
     <header class="main-header">
         <h1 class="title">LA TV Shows</h1>
     </header>
+    <input type="text" id="search-input" oninput="search()" placeholder="Search...">
     <div id="card-container">
-        
+
     </div>
+    <div class="pagination">
+        <button class="prev-page" onclick="prevPage()">Previous</button>
+        <div class="page-numbers">
+            <!-- Page numbers will be dynamically generated here -->
+        </div>
+        <button class="next-page" onclick="nextPage()">Next</button>
+    </div>
+
     <div class="card" style="display: none;">
         <div class="card-content">
             <h2>TV Show Title</h2>
@@ -24,8 +34,13 @@
                 <li>Bullet Point 2</li>
                 <li>Bullet Point 3</li>
             </ul>
+            <i class="favorite-icon far fa-heart" onclick="toggleFavorite(this)"></i>
+            <!-- Favorite icon with onclick handler -->
+            <i class="delete-icon fas fa-trash-alt" onclick="deleteCard(this)"></i>
+            <!-- Delete icon with onclick handler -->
         </div>
     </div>
+
     <div class="footer">
         <button onclick="quoteAlert();">
             Get A Quote!
@@ -33,7 +48,25 @@
         <button onclick="removeLastCard();">
             Remove A Card!
         </button>
+        <button onclick="displayFavorites()">
+            Display Favorites
+        </button>
+
+        <button onclick="showAllMovies()">
+            Show All Movies
+        </button>
+        <select id="genre-filter" onchange="filterByGenre()">
+            <option value="all">All Genres</option>
+            <option value="crime">Crime</option>
+            <option value="drama">Drama</option>
+            <option value="action">Action</option>
+            <!-- Add more options for other genres -->
+        </select>
+
+
     </div>
+
+
 </body>
 
 </html>

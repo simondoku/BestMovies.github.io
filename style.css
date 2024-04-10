@@ -33,20 +33,47 @@ body {
 }
 
 .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* Add relative positioning to the card content */
     padding: 20px;
     font-family: "Verdana";
     color: #777;
+    position: relative; /* Add relative positioning */
 }
+
+.favorite-icon {
+    position: absolute;
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Align icons to the top right corner */
+    cursor: pointer;
+    z-index: 1; /* Ensure icons appear above other content */
+}
+
+.delete-icon {
+    position: absolute;
+    bottom: 10px; /* Align delete icon to the bottom */
+    right: 10px; /* Align delete icon to the right */
+    cursor: pointer;
+    z-index: 1; /* Ensure icons appear above other content */
+}
+
+
 
 .card-content h2 {
     margin-top: 0;
     font-size: 20px;
+    padding-right: 30px; /* Adjust padding to make space for icons */
 }
+
 
 .card img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
 }
+
 
 .footer {
     display: flex;
@@ -67,4 +94,48 @@ button {
     font-size: 22px;
     cursor: pointer;
     margin: 5px;
+}
+#search-input {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none; /* Removes the default outline */
+}
+
+#search-input::placeholder {
+    color: #999; /* Adjust placeholder text color */
+}
+
+/* Optional: Style for when the input is focused */
+#search-input:focus {
+    border-color: dodgerblue; /* Change border color when input is focused */
+}
+
+/* Styling for the genre filter */
+#genre-filter {
+    padding: 8px;
+    border: 1px solid #666;
+    border-radius: 10px;
+    background-color: #666;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 22px;
+    height: 40px;
+    margin: 5px 0;
+}
+
+
+/* Styling for the options in the genre filter */
+#genre-filter option {
+    background-color: white;
+    color: #666;
+}
+
+/* Styling for the genre filter when focused */
+#genre-filter:focus {
+    border-color: dodgerblue;
 }
